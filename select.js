@@ -93,42 +93,42 @@ const setupCustomElement = (select) => {
   let searchTerm = '';
   customElement.addEventListener('keydown', (e) => {
     switch (e.code) {
-      case 'Space':
+      case 'Space': {
         optionCustomElement.classList.toggle('show');
         break;
-
-      case 'ArrowUp':
+      }
+      case 'ArrowUp': {
         const prevOption = options[select.selectedOptionIndex - 1];
         if (prevOption) {
           select.selectValue(prevOption.value);
         }
         break;
-
-      case 'ArrowDown':
+      }
+      case 'ArrowDown': {
         const nextOption = options[select.selectedOptionIndex + 1];
         if (nextOption) {
           select.selectValue(nextOption.value);
         }
         break;
-
+      }
       case 'Enter':
-      case 'Escape':
+      case 'Escape': {
         optionCustomElement.classList.remove('show');
         break;
-
-      default:
+      }
+      default: {
         clearTimeout(debounceTimeout); // reset timeout when typing
         searchTerm += e.key;
         debounceTimeout = setTimeout(() => {
           searchTerm = '';
         }, 500);
-
         const searchedOption = options.find((option) => {
           return option.label.toLowerCase().startsWith(searchTerm);
         });
         if (searchedOption) {
           select.selectValue(searchedOption.value);
         }
+      }
     }
   });
 };
