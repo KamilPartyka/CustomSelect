@@ -1,0 +1,64 @@
+._CS-container,
+._CS-value,
+._CS-options,
+._CS-option,
+._CS-option-selected {
+  box-sizing: border-box;
+}
+
+._CS-container {
+  display: inline-block;
+  position: relative;
+}
+._CS-container:focus > ._CS-value {
+  border-width: 2px;
+  outline: none;
+}
+
+._CS-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  border: 1px solid black;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+._CS-value::after {
+  content: '';
+  display: inline-block;
+  border: 4px solid transparent;
+  border-top-color: black;
+  margin-left: 12px;
+  margin-top: 4px;
+}
+
+._CS-options {
+  display: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 2px solid black;
+  border-top: none;
+  width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+._CS-options.show {
+  display: block;
+}
+
+._CS-option {
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+._CS-option:hover {
+  background-color: #17d4fc;
+}
+
+._CS-option.selected {
+  background-color: #0993f3;
+}
